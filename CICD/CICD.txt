@@ -1,0 +1,13 @@
+https://www.youtube.com/playlist?list=PL_noPv5wmuO_VfokqbRPAahRYbB0HRqV6
+
+https://www.youtube.com/watch?v=uUuTYDg9XoI&list=PLjQo0sojbbxVHcVN4h9DMu6U6spKk21uP
+
+
+*******************************************************************************************************************************************
+**********Jenkins and Git integration
+go to jenkins > available > and add git plugin
+restart jenkins using url < localhost:8080/jenkins/restart > 
+add new item > select free style > source code management > git > 
+provide repository url > git username and password
+
+

@@ -1,0 +1,164 @@
+********************traversey media(  https://www.youtube.com/watch?v=SWYqp7iY_Tc )
+-----clonning from remote to local
+$git clone remoterepourl   ( this auto initialize git here)
+$git config --global user.email 'sk'
+$git config --global user.email 'sugeenkaushik@gmail.com'
+$git status
+$git add .
+$git status
+$git commit -m 'message for commit'
+$git push
+$git pull  ( to get updated code from remote repo)
+
+-----add or remove files to/from staging area
+add something to staging area
+$git add test01.java   OR git add .
+remove something from staging area
+$git rm - -cached test01.java
+add a file to git repo
+$ touch test01.txt
+
+----ignore some files from git staging area
+1 create .gitignore file in git repo
+2. mention name of file like test01.txt inside this .gitignore file
+3. Now we can keep this for our secure work and whenever we do < git add . > , this file will not be added to staging area or remote repo. 
+
+inside .gitingnore file give name like:
+files  >  test01.txt   Or *.txt 
+folder >   /testing
+
+----commit editor screen
+When we use simple git commit command then we are forced to add comments for this commit so below is process to add comments. 
+
+press < i > to enter edit mode
+make changes here
+press < esc > to come out of editor
+type < :wq > to come to gitbash cmd 
+
+------clear gitbash screen
+$clear
+
+
+
+************************************************************************
+***************************************************************************************************************************************************************************
+
+
+*****GIT Installation and clone GIT project to local
+signup on github.com
+create new repository with your creds
+
+GIT is tool to communicate with GIT repository stored on admin GITHUB or company GITHUB account
+// download GIT ( gitbash)  from git.scm.com/downloads
+install git exe
+now launch gitbash which is terminal comes with GIT
+check whether git is installed
+$git --version
+
+***** Clone process from Company github to our local 
+
+we can create git folder in our local to get project from github 
+$mkdir newgit
+//navigate to this newgit directory OR right click on folder and select gitbash
+// now clone the project using company github project cloneurl
+$git clone https://github.com/sugeenk/Test.git
+//navigate to clonned project repository and set user creds ( make sure you are in project repository , not in created git folder )  
+$ git config user.name "sugeenk"
+$ git config user.email "sugeenkaushik@gmail.com"
+
+Now we can import project in our IDE ( eclipse or intellj)
+
+*********Pull request from GIT to our local repo
+As Clone is one time process only so we will use pull request for all future updates from GITHUB to our local
+$git pull origin master
+
+********** GIT SSH ( Secure socket shell): Network protocol to provide secure access. 
+For clone and pull we do not need SSH keys But To push code from local to Admin GITHUB Or Company GITHUB repo we need to set SSH key. 
+
+//Open GITBASH and navigate to project path ( as we created newgit in last process) 
+// Below command will create a .ssh directory in system user folder. And later steps will create ssh key 
+$ ssh-keygen.exe
+//Just Press yes against file name given or provide exact file path
+$ 	yes	
+//Enter system password against passphrase
+$	systempassword
+//ReEnter password
+$ 	systempassword
+//We can see id_rsa.pub as public key and id_rsa as private key if we have purchased
+//Open public key < id_rsa.pub > in notepad and copy the key and provide this key to Admin GITHUB User Or Company GITHUB user
+
+// now we will set our local project to point to SSH git
+// go to Admin GITHUB User Or Company GITHUB user > setting > ssh and gpg key > new ssh key > paste it > given username
+// Now that local user is allowed to push any code change to this Admin/Company GITHUB account
+
+
+*****************Push/checkin process
+$ git branch	 (to see how many branches, Mostly we have only one master branch if we have not created once)
+$ git checkout -b "xyzbranch"	 ( to create new local branch ) 
+$ git add .     		( to add all changes made in our local)
+$ git commit -m "commit message"  ( to save the changes ) 
+$ git push - -set-upstream origin xyzbranch   ( to send all changes to github)
+$username
+$systempassword
+
+// now go to user github account and verify new branch added
+// now compare new branch with master or any previous 
+<Now we need to raise pull request >
+// pull request allow other to review your code and then merge it to master
+// once merge is done for our code, there may be other users for which merge done so to get latest code in our local master branch we need to pull updated code from github
+$git pull origin master
+//now update your local master copy with latest master code
+$git checkout master
+$git checkout xyzbranch
+// now we can repeat all above process again.
+
+******************** Scenario - Push new local repo to GITHUB repo
+When  we clone project from GITHUB to our local bydefault git is initialize in our local project folder But
+When we create a local project and want to push directly it to GITHUB then we need to initialized git inside our local project path
+
+create a project on Eclipse and copy its project path
+navigate to project path
+$git init
+We can see .git file is created under project path
+Now connect local project repo to GITHUB repo. 
+$git remote add origin git@github.com:xyz/DemoRepo.git
+Now check status of project
+$git status
+Now add our all local files 
+$git add .   ( OR $git add Test01.java)
+$git status
+Now save this files transfer
+$git commit -m "commit message"
+Now send these files to GITHUB
+$git push origin master
+$	< enter system password > 
+// << verify whether commit message is shown  against all the new files which we added >>
+
+
+***************GIT: Avoid commit for existing file changes ( This is only for files which are present on local and GIT repo both) 
+//to avoid commit a file with some changes which is already present on GIT repo with previous status
+git stash
+//Now if we write git status we will not be able to see existing edited file to be commited to GIT repo 
+git status 
+//to unhide this file to GIT repo we use below command
+git stash pop
+//now if we write git status we can see that file to be commited to GIT repo with changes made
+
+
+*****GIT: important shortcuts on gitbash
+//navigate to other driver and folder 
+$cd /g/maven/bdd
+//terminate the current process, Of course may be the given software handle it
+ctrl + c 
+
+
+
+
+
+
+
+
+
+
+
+
