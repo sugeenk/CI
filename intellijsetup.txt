@@ -1,0 +1,18 @@
+***************Intellij short Keys
+shift + f9   > debug the code
+shift + f10  > run the test
+ctrl + f2 to stop execution
+ctrl + shift +f8 to see all breakpoints
+
+ctrl + f  < on any highlighted text > will give you helpful tips
+ctrl + alt + s   < setting/ plug ins     > 
+alt + enter < on any highlighted text > will give you necessary action support
+
+
+ctrl + shift+ a  < type increase font > will increase font of text
+Run > Edit configuration > click on feature file > Now we can give corresponding steps folder in glue field. ( it will run feature file with our runner )
+Ctrl + alt + B < on feature file > it will take you to the corresponsing step file
+Ctrl + alt + L < do format of code in proper format > 
+
+
+

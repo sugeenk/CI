@@ -1,0 +1,37 @@
+*****Merge and Rebase
+// merge is only for local workdone. So we will merge our newbranch to our master once we are done with our work.
+
+git checkout master
+git merge mybranch
+
+OR
+// Rebase will update the master and will put mybranch on top of master in linear update
+git checkout master
+git rebase mybranch
+
+
+*******add and commit
+$git add .
+$git commit -m "message"
+
+// if files are already added to git and now we are making some changes to them then we can use combined command
+$git commit -a -m "edit message and commit message"
+
+****SSH 
+//generate ssh key
+$ssh-keygen
+//now to see ssh key in same terminal
+$cat /c/xyz/id_rsa.pub
+// now copy key generated here and now navigate to GITHUB and create key here
+// now authenticate ssh key
+$ssh -T SSHURL
+
+
+****PUSH  ( update local changes to remote server repo)
+// update our local master to remote server master
+$git checkout master
+$git push origin master
+// update our local subbranch to remote server repo by creating same branch there as well
+$git checkout subbranch
+$git push origin subbranch
+// now we can raise a pull request and merge request
