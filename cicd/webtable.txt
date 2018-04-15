@@ -1,0 +1,70 @@
+*******************print webtable
+	WebDriver wd;
+    	System.setProperty("webdriver.chrome.driver","G://chromedriver.exe");
+    	wd = new ChromeDriver();
+    	wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    	wd.get("http://demo.guru99.com/test/table.html");
+    	//To locate table.
+    	WebElement mytable = wd.findElement(By.xpath("/html/body/table/tbody"));
+    	//To locate rows of table. 
+    	List < WebElement > rows_table = mytable.findElements(By.tagName("tr"));
+    	//To calculate no of rows In table.
+    	int rows_count = rows_table.size();
+    	//Loop will execute till the last row of table.
+    	for (int row = 0; row < rows_count; row++) {
+    	    //To locate columns(cells) of that specific row.
+    	    List < WebElement > Columns_row = rows_table.get(row).findElements(By.tagName("td"));
+    	    //To calculate no of columns (cells). In that specific row.
+    	    int columns_count = Columns_row.size();
+    	    System.out.println("Number of cells In Row " + row + " are " + columns_count);
+    	    //Loop will execute till the last cell of that specific row.
+    	    for (int column = 0; column < columns_count; column++) {
+    	        // To retrieve text from that specific cell.
+    	        String celtext = Columns_row.get(column).getText();
+    	        System.out.println("Cell Value of row number " + row + " and column number " + column + " Is " + celtext);
+    	    }
+    	    System.out.println("-------------------------------------------------- ");
+    	}
+		
+		
+		
+******************validate whether a perticular webtable column have some text available ( using dynamic xpath for row)
+    @Test
+    public void test01(){
+
+        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://money.rediff.com/gainers/bsc/daily/groupa");
+
+        List<WebElement> rows = driver.findElements(By.xpath("//*[@id='leftcontainer']/table/tbody/tr"));
+            int i = 1;
+            for (WebElement rowElement : rows) {
+
+                WebElement column = rowElement.findElement(By.xpath("//*[@id='leftcontainer']/table/tbody/tr[" + i + "]/td[3]"));
+
+                if (column.getText() != null) {
+                    System.out.println(column.getText());
+
+                }
+                i++;
+            }
+            flag = true;
+            System.out.println("we are good with testing, we have null values given in table");
+    }	
+	
+	
+******************Hidden element management using JAVASCRIPT HTML DOM
+Lets take an example of auto suggest box in makemy trip where we can not find input box search text using selenium as these are written with hidden class type. 
+So we need to use JavascriptExecutor and key.down method to navigate to that element. 
+
+JavascriptExecutor js= ((JavascriptExecute)driver);
+String script = "return document.getElementById(\"idvalue\").value ; " ;
+String cellValue = (String)js.executeScript(script) ;
+System.out.println(cellValue);
+
+while(!cellValue.equalIgnoreCase("targetFlightName")){
+driver.findElement(By.id("")).sentKeys(Keys.DOWN);
+cellValue=(String)js.executeScript(script) ;
+System.out.println("newValueis: ----" + cellValue);
+}
+

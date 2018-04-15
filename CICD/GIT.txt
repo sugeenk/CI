@@ -1,3 +1,8 @@
+//git tutorial from LearnCodeAcademy
+https://www.youtube.com/watch?v=0fKg7e37bQE
+https://www.youtube.com/watch?v=oFYyTZwMyAg&t=19s
+
+
 *****************Push/checkin process
 $ git branch	 (to see how many branches, Mostly we have only one master branch if we have not created once)
 $ git branch xyzbranch
