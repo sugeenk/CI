@@ -1,7 +1,7 @@
 Jenkins
 https://www.youtube.com/watch?v=EYFwSzsm13U&index=3&list=PL_noPv5wmuO-oOO2-czJsqVbPAKnmT_7h
 
------setup
+-----System Environment setup
 install java 
 configure java bin ( JAVA_HOME)
 download maven
@@ -9,32 +9,48 @@ you can rename folder and name it maven and paste in C drive eg: C:\maven
 configure maven bin ( M2_HOME and MAVEN_HOME)
 download jenkin.war (for ease you can create folder and name it jenkins and paste put this war file in it and now We can keep this folder in c directory eg: C:\jenkins\jenkins.war
 
-navigat to projct path on cmd 
-run jenkins locally using < java -jar 
-jenkins.war >
-It will install jenkins and 
-It will create one time password in cmd for jenkin initial setup  ( we receive OTP on C:\Users\sugeen.XEBIAINDIA\.jenkins\secrets  OR  we can see in cmd prompt )
-open url localhost:8080  < enter OTP > 
-Now click on install suggested plugin. It will install all required plugins
+---Installation and jenkins setup
+lets install jenkins on our system
+//navigat to projct path on cmd 
+// now install jenkins on client and provide jenkins war file path 
+< java -jar c:\jenkins\jenkins.war >
+//It will install jenkins and It will create one time password in cmd for jenkin initial setup  ( we receive OTP on C:\Users\sugeen.XEBIAINDIA\.jenkins\secrets  OR  we can see in cmd prompt )
 
-create user now by giving username, password, fullname and mailid
-It creates jenkin admin user on our local
-We can add many users by clicking on people on Jenkins homepage. 
+//Now open browser and hit url localhost:8080  
+< enter OTP > 
+//Now click on install suggested plugin. It will install all required plugins
+//create user now by giving username, password, fullname and mailid
+//It creates jenkin admin user on our local
+//We can add many users by clicking on people on Jenkins homepage. 
 
 -----additional plugins
-Go to Manage Jenkins > manage plugins > Click on available > search for required plugins like maven, junit, cucumber, reportin plugin ( publish html report )
+Go to Manage Jenkins > manage plugins > Click on available > search for required plugins like maven, junit, cucumber, reportin plugin ( publish html report ), greeballs ( to show pass as green and fail as red)
 
 ---project work
 Click on new  task > select maven project > provide project name
-Select sourcecode management. 
-< None for code inside local and GIT if project is on GITHUB > 
-Go to Build > click on tool configuration > Provide name and version for maven > save and apply
-Under root POM provide pom.xml path 
-Under goals and options give command < clean install > 
+ 
+----Set Jenkins
+global tool configuration> JDK
+// Provide javaHome path
+// Provide mavenHome path
+
+--Select sourcecode management. 
+< None for code inside local> and 
+<GIT if project is on GITHUB >
+
+----configure jenkins >  build > 
+// provide pom file full path under rootPom
+// provide clean install under goalsAndOptions
+
+---- configure jenkins >BuildSettings
+provide mailid for receipent basis given condition
+
+----configure jenkins > poststeps
 Go to PostSteps > Confirm post steps is "Run regardless of build result"
 Go to post build actions > Add publish HTML reports 
 Click add > Provide Index pages as Extent file path, Report title as anyname
---Also to enable Extent actual look and feel we need one more setting 
+
+----Also to enable Extent actual look and feel we need one more setting 
 Go to manage jenkins > Script Console > Enter the command < System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", " ") >  And click on Run
 (Here we can select our reporting plugin like testng, extent reports etc)
 Now go to Project  > Click on buildnow > validate the console.
@@ -50,3 +66,5 @@ every five minutes >   */5****
 on each 5th minutes >   5****
 every day 8.30  	> 308***
 12 am wednesday 	> 012**3
+
+// it consider all value as full value. 
