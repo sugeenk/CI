@@ -1,14 +1,24 @@
-********************traversey media(  https://www.youtube.com/watch?v=SWYqp7iY_Tc )
------clonning from remote to local
-$git clone remoterepourl   ( this auto initialize git here)
-$git config --global user.email 'sk'
-$git config --global user.email 'sugeenkaushik@gmail.com'
-$git status
-$git add .
-$git status
-$git commit -m 'message for commit'
-$git push
-$git pull  ( to get updated code from remote repo)
+*****************Push/checkin process
+$ git branch	 (to see how many branches, Mostly we have only one master branch if we have not created once)
+$ git branch xyzbranch
+$ git checkout xyzbranch	 
+$ git add .     		( to add all changes made in our local)
+$ git commit -m "commit message"  ( to save the changes ) 
+$ git push - -set-upstream origin xyzbranch   ( to send all changes to github)
+$username
+$systempassword
+
+// now go to user github account and verify new branch added
+// now compare new branch with master or any previous 
+<Now we need to raise pull request >
+// pull request allow other to review your code and then merge it to master
+// once merge is done for our code, there may be other users for which merge done so to get latest code in our local master branch we need to pull updated code from github
+//now update your local master copy with latest remote master code
+$git checkout master
+$git pull origin master
+
+$git checkout xyzbranch
+// now we can repeat all above process again.
 
 -----add or remove files to/from staging area
 add something to staging area
@@ -91,26 +101,6 @@ $ 	systempassword
 // go to Admin GITHUB User Or Company GITHUB user > setting > ssh and gpg key > new ssh key > paste it > given username
 // Now that local user is allowed to push any code change to this Admin/Company GITHUB account
 
-
-*****************Push/checkin process
-$ git branch	 (to see how many branches, Mostly we have only one master branch if we have not created once)
-$ git checkout -b "xyzbranch"	 ( to create new local branch ) 
-$ git add .     		( to add all changes made in our local)
-$ git commit -m "commit message"  ( to save the changes ) 
-$ git push - -set-upstream origin xyzbranch   ( to send all changes to github)
-$username
-$systempassword
-
-// now go to user github account and verify new branch added
-// now compare new branch with master or any previous 
-<Now we need to raise pull request >
-// pull request allow other to review your code and then merge it to master
-// once merge is done for our code, there may be other users for which merge done so to get latest code in our local master branch we need to pull updated code from github
-$git pull origin master
-//now update your local master copy with latest master code
-$git checkout master
-$git checkout xyzbranch
-// now we can repeat all above process again.
 
 ******************** Scenario - Push new local repo to GITHUB repo
 When  we clone project from GITHUB to our local bydefault git is initialize in our local project folder But
